@@ -1,0 +1,728 @@
+/* ======================================
+   Reset y estilos globales
+   ====================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #fff;
+    color: #000;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    opacity: 0;
+    animation: fadeInPage 1s ease-in-out forwards;
+}
+
+/* ======================================
+     Header y navegación
+     ====================================== */
+header {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease, color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 4px rgba(1, 1, 1, 0.3);
+    /* Añadir sombra */
+    transform: translateY(-100%);
+    animation: slideDownHeader 0.5s ease-in-out forwards;
+}
+
+header.scrolled {
+    background-color: #fff;
+    color: #000;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 5px 4px rgba(1, 1, 1, 0.3);
+    /* Mantener sombra */
+}
+
+header.scrolled h1 {
+    transform: translateX(0);
+    transition: transform 0.3s ease, font-size 0.3s ease;
+    font-size: 1.2rem;
+    text-align: left;
+}
+
+header.scrolled nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+header.scrolled nav ul {
+    margin: 0;
+}
+
+header.scrolled nav ul li a {
+    color: #000;
+    transition: color 0.3s ease;
+}
+
+header.scrolled nav ul li a:hover {
+    color: #0056b3;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding: 0;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #000;
+    transform: scale(1.1);
+}
+
+header h1 {
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+header h1:hover {
+    color: #0056b3;
+}
+
+/* ======================================
+     Main y secciones
+     ====================================== */
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 10rem auto 0 auto;
+    /* Aumentar margen superior para evitar que el contenido quede oculto */
+}
+
+section {
+    margin-bottom: 2rem;
+    animation: fadeIn 1s ease-in;
+    scroll-margin-top: 6rem;
+    /* Añadir margen superior para evitar que el título sea tapado */
+}
+
+/* ======================================
+     Modal (dialog) - Animaciones
+     ====================================== */
+dialog {
+    border: 2px solid #007BFF;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: dialogFadeIn 0.3s ease-out forwards;
+    max-width: 90%;
+    width: 600px;
+    margin: auto;
+    /* Hacerlo fijo */
+    position: fixed;
+    /* Centrar verticalmente */
+    top: 0%;
+    /* Centrar horizontalmente */
+    left: 0%;
+    /* ajustar la posición */
+    transform: translate(-50%, -50%);
+}
+
+dialog[closing] {
+    animation: dialogFadeOut 0.3s ease-out forwards;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+dialog img {
+    max-width: 100%;
+    height: auto;
+    display: flex;
+    margin: 1rem auto;
+    /* Add margin to separate from text */
+    animation: none !important;
+    /* Desactiva cualquier animación */
+}
+
+dialog a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: drop-shadow(0 0 5px rgba(0, 123, 255, 0.5));
+}
+
+dialog article {
+    margin: 0 auto;
+}
+
+/* ======================================
+     Botones y elementos interactivos
+     ====================================== */
+button {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #007BFF;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background-color: #0056b3;
+}
+
+/* ======================================
+     Formularios
+     ====================================== */
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #007BFF;
+}
+
+fieldset {
+    border: 1px solid #007BFF;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    animation: slideIn 0.5s ease-in-out;
+}
+
+legend {
+    padding: 0 0.5rem;
+    font-weight: bold;
+}
+
+/* ======================================
+     Listas
+     ====================================== */
+ul,
+ol {
+    margin-left: 1.5rem;
+    animation: fadeIn 1s ease-in;
+}
+
+.List-item,
+.lista {
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.List-item:hover,
+.lista:hover {
+    color: #007BFF;
+    transform: translateX(10px);
+}
+
+/* ======================================
+     Articles
+     ====================================== */
+article {
+    position: relative;
+    width: 450px;
+    transition: all .3s ease;
+}
+
+article img:first-child {
+    filter: drop-shadow(0 0 5px rgba(0, 123, 255, 0.5));
+    border-radius: 6px;
+    object-fit: cover;
+    width: 100%;
+    transition: filter drop-shadow 0.3s ease;
+    /* Añadir transición para la sombra */
+}
+
+article img:last-child {
+    position: absolute;
+    width: 200px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transform: translateY(25%);
+    transition: .3s ease;
+    opacity: 0;
+}
+
+article:hover {
+    transform:
+        perspective(250px) rotateX(10deg)translateY(-5%)translateZ(0);
+}
+
+article::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(to bottom, transparent 10%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0)95%);
+    opacity: 0;
+    transition: all .3s ease;
+}
+
+article:hover::before {
+    opacity: 1;
+}
+
+article:hover img:last-child {
+    opacity: 1;
+    transform: translateY(10%);
+}
+
+/* ======================================
+     Imágenes y videos responsivos
+     ====================================== */
+img,
+video {
+    max-width: 100%;
+    display: block;
+    border-radius: 4px;
+    transition: transform 0.5s ease;
+}
+
+img:hover,
+video:hover {
+    transform: scale(1.02);
+}
+
+/* ======================================
+     Elementos details (Preguntas y respuestas)
+     ====================================== */
+details {
+    margin-bottom: 1rem;
+    border: 1px solid #007BFF;
+    border-radius: 4px;
+    padding: 0.5rem;
+    transition: background-color 0.3s ease, max-height 0.5s ease, padding 0.5s ease;
+    overflow: hidden;
+    max-height: 2.5rem;
+    /* Altura inicial para el summary */
+}
+
+details[open] {
+    background-color: #f0f8ff;
+    max-height: 100rem;
+    /* Altura suficiente para mostrar el contenido */
+    padding: 0.5rem;
+}
+
+details summary {
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+details summary:hover {
+    color: #007BFF;
+}
+
+/* ======================================
+     Footer
+     ====================================== */
+footer {
+    background-color: #007BFF;
+    /* Cambiar a azul */
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem;
+    /* Aumentar padding */
+    animation: fadeIn 1s ease-in;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    /* Añadir sombra */
+    border-top: 3px solid #0056b3;
+    /* Añadir borde superior */
+}
+
+footer ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    /* Aumentar espacio entre elementos */
+    margin-top: 1rem;
+    /* Aumentar margen superior */
+    padding: 0;
+}
+
+footer ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    /* Añadir negrita */
+    transition: color 0.3s ease, transform 0.3s ease;
+    padding: 0.5rem 1rem;
+    /* Añadir padding */
+    border-radius: 4px;
+    /* Añadir borde redondeado */
+}
+
+footer ul li a:hover {
+    color: #000;
+    /* Cambiar color al pasar el ratón */
+    transform: scale(1.1);
+}
+
+/* ======================================
+     Keyframes de animaciones
+     ====================================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes openDetails {
+    from {
+        opacity: 0;
+        transform: scaleY(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+}
+
+@keyframes dialogFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes dialogFadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes fadeInPage {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideDownHeader {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* ======================================
+   Mejoras en el Formulario
+   ====================================== */
+#contactForm {
+    background: linear-gradient(135deg, #e0f7ff, #ffffff);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: formFadeIn 1s ease-out;
+    margin: 1rem 0;
+}
+
+#contactForm:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#contactForm fieldset {
+    border: 2px solid #007BFF;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    animation: slideIn 0.5s ease-in-out;
+}
+
+#contactForm legend {
+    font-size: 1.2rem;
+    padding: 0 1rem;
+    color: #007BFF;
+}
+
+/* Animación para mostrar el formulario */
+@keyframes formFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilos en campos de formulario */
+#contactForm input,
+#contactForm textarea,
+#contactForm select {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#contactForm input:focus,
+#contactForm textarea:focus,
+#contactForm select:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Botón de envío del formulario */
+#contactForm button[type="submit"] {
+    background-color: #007BFF;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    border-radius: 4px;
+    padding: 0.75rem 1.5rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+#contactForm button[type="submit"]:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* ======================================
+     Mejoras en la Sección de la Canción
+     ====================================== */
+#cancion {
+    text-align: center;
+    padding: 2rem;
+    background-color: #f0f8ff;
+    /* tono claro de azul */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: songFadeIn 1s ease-out;
+    margin: 1rem 0;
+}
+
+#cancion:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Personalización del reproductor de audio */
+#cancion audio {
+    width: 100%;
+    border-radius: 8px;
+    outline: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#cancion audio:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Animación para la sección de la canción */
+@keyframes songFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Ajuste específico para el checkbox de términos y condiciones */
+#contactForm div label[for="terms"] {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+#contactForm div input[type="checkbox"]#terms {
+    display: block;
+    margin: 0 auto;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+#dialog img {
+    max-width: 50%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    animation: none !important;
+    /* Desactiva cualquier animación */
+}
+
+aside {
+    position: relative;
+    /* Asegura que el aside no se mueva con el scroll */
+    z-index: 1;
+    /* Asegura que el aside esté debajo del header */
+}
+
+#galeria {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 5px;
+}
+
+.columnas {
+    flex: 1 1 calc(25% - 10px);
+    padding: 1px;
+}
+
+.columnas img {
+    margin-top: 5px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* ======================================
+     Videos
+     ====================================== */
+#videos {
+    display: flex;
+    overflow-x: auto; /* Permitir desplazamiento horizontal */
+    gap: 1.5rem; /* Espacio entre videos */
+    padding: 2rem;
+    background-color: #f0f8ff; /* Fondo claro */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: videosFadeIn 1s ease-out;
+    margin: 1rem 0;
+}
+
+#videos video {
+    flex: 0 0 auto; /* Evitar que los videos se reduzcan de tamaño */
+    width: 100%;
+    max-width: 600px; /* Limitar el ancho máximo */
+    border-radius: 8px;
+    outline: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#videos video:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Animación para la sección de videos */
+@keyframes videosFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+    header.scrolled {
+        flex-direction: column;
+    }
+
+    .columnas {
+        flex: 1 1 calc(50% - 10px);
+    }
+}
+
+@media (max-width: 480px) {
+    header.scrolled {
+        padding: 0.5rem;
+    }
+
+    .columnas {
+        flex: 1 1 100%;
+    }
+}
